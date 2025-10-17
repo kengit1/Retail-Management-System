@@ -48,6 +48,7 @@ public class EmployeeUser implements Record {
         database.readFromFile();
         database.insertRecord(user);
         database.saveToFile();
+
         System.out.println(database.returnAllRecords());
     }
 
