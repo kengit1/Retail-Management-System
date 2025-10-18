@@ -34,7 +34,6 @@ public class Product {
     public String getSearchKey() {
         return productID;
     }
-
     public void saveToFile(String filename) {
         try (FileWriter writer = new FileWriter(filename, true)) {
             writer.write(lineRepresentation() + "\n");
@@ -42,5 +41,9 @@ public class Product {
         } catch (IOException e) {
             System.out.println("Error saving product: " + e.getMessage());
         }
+    }
+
+    public float getPrice() {
+        return this.price;
     }
 }
