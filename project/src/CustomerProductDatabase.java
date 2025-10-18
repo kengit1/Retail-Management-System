@@ -8,7 +8,7 @@ public class CustomerProductDatabase extends AbstractDatabase<CustomerProduct>{
     @Override
     public CustomerProduct createRecordFrom(String line) {
         String[] parts = line.split(",", -1);
-        if (parts.length != 3) {
+        if (parts.length != 4) {
             System.out.println("Invalid record in the CustomerProductDatabase");
             return null;
         }
