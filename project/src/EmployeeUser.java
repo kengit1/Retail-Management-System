@@ -1,6 +1,7 @@
 public class EmployeeUser implements Record {
     private final String employeeId,name ;
     private String email,address,phoneNumber ;
+
     EmployeeUser(String employeeId , String name , String email, String address , String phoneNumber)
     {
         this.employeeId = employeeId ;

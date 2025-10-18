@@ -8,7 +8,7 @@ public abstract class AbstractDatabase<T extends Record> {
     AbstractDatabase(String filename)
     {
         this.fileName = filename ;
-        this.records = new ArrayList<T>() ;
+        this.records = new ArrayList<>() ;
     }
 
     public abstract T createRecordFrom(String lineRecord) ;
@@ -24,12 +24,12 @@ public abstract class AbstractDatabase<T extends Record> {
                 if(iniRecord != null)
                    records.add(iniRecord) ; //done appending to the arraylist
             }
-            System.out.println("*Done acquiring the data of the EmployeeDatabase") ;
-            reader.close();
+            System.out.println("*Done acquiring the data from the database") ;
+            reader.close(); // redundant ?
         } catch (FileNotFoundException e) {
             System.out.println("File was not found");
         } catch (IOException e) {
-            System.out.println("Something went wrong");
+            System.out.println("*Something went wrong");
         }
     }
 
@@ -55,7 +55,7 @@ public abstract class AbstractDatabase<T extends Record> {
         if(record != null)
             records.remove(record) ;
         else
-            System.out.println("There is no such record.") ;
+            System.out.println("*There is no such record.") ;
     }
     public void saveToFile()
     {
