@@ -86,6 +86,11 @@ public class EmployeeRole {
 
         return updated;
     }
+    public void removeRecord(String key){
+        productsDatabase.deleteRecord(key);
+
+
+    }
 
 
     public void logout() {
