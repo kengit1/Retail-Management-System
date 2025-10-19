@@ -1,10 +1,10 @@
 import java.io.FileWriter;
 
-public class Product {
-    private String productID;
-    private String productName;
-    private String manufacturerName;
-    private String supplierName;
+public class Product implements Record {
+    private final String productID;
+    private final String productName;
+    private final String manufacturerName;
+    private  String supplierName;
     private int quantity;
     private float price;
 
@@ -24,6 +24,17 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString()
+    {
+        return productID + "," + productName + "," + manufacturerName + "," +
+                supplierName + "," + quantity + "," + price;
+    }
+    public String lineRepresentation() {
+        return this.toString() ;
+    }
+
     public String getSearchKey() {
         return productID;
     }

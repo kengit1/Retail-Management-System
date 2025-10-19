@@ -22,13 +22,13 @@ public class EmployeeUserDatabase extends AbstractDatabase<EmployeeUser>{
     @Override
     public boolean contains(String Key)
     {
-        return records.stream().anyMatch(record -> Key.equals(record.getSearchKey())) ;
+        return returnAllRecords().stream().anyMatch(record -> Key.equals(record.getSearchKey())) ;
         // better to avoid the null from the records
     }
     @Override
     public EmployeeUser getRecord(String Key)
     {
-        return records.stream().filter(
+        return returnAllRecords().stream().filter(
                 record -> Key.equals(record.getSearchKey()))
                 .findFirst().orElse(null) ;
         /* converted the Collection of ArrayList into a Stream of data which

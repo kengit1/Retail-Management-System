@@ -187,7 +187,8 @@ private static void adminLogin() {
                         System.out.println("Enter Quantity");
                         int quantity=s.nextInt();
                         employee.addProduct(id,name,manufacturer,supplier,quantity);
-                        System.out.println("\n[SUCCESS] Product %s added successfully. Changes will be saved on logout.%n");
+                        System.out.println("\n[SUCCESS] Product added successfully. Changes will be saved on logout.");
+                        employee.logout();
                         break;
                     case 2:
                         System.out.println("\n--- LIST OF ALL PRODUCTS IN INVENTORY ---------------------------");

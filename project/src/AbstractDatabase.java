@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public abstract class AbstractDatabase<T extends Record> {
-    protected ArrayList<T> records ;
+    private ArrayList<T> records ;
     protected String fileName ;
     //To call super()
     AbstractDatabase(String filename)

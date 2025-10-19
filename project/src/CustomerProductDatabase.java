@@ -22,10 +22,10 @@ public class CustomerProductDatabase extends AbstractDatabase<CustomerProduct>{
     }
     @Override
     public boolean contains(String key){
-        return records.stream().anyMatch(record -> key.equals(record.getSearchKey()));
+        return returnAllRecords().stream().anyMatch(record -> key.equals(record.getSearchKey()));
     }
     @Override
     public CustomerProduct getRecord(String key){
-        return records.stream().filter(record -> key.equals(record.getSearchKey())).findFirst().orElse(null);
+        return returnAllRecords().stream().filter(record -> key.equals(record.getSearchKey())).findFirst().orElse(null);
     }
 }
