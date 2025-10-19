@@ -26,7 +26,6 @@ public class ProductDatabase extends AbstractDatabase<Product>
     @Override
     public boolean contains(String Key) {
         return returnAllRecords().stream().anyMatch(record -> Key.equals(record.getSearchKey())) ;
-        // better to avoid the null from the records
     }
 
     @Override

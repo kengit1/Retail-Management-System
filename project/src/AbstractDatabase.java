@@ -22,7 +22,7 @@ public abstract class AbstractDatabase<T extends Record> {
             {
                 T iniRecord = createRecordFrom(line) ;
                 if(iniRecord != null)
-                   records.add(iniRecord) ; //done appending to the arraylist
+                   records.add(iniRecord) ;
             }
             System.out.println("*Done acquiring the data from the database") ;
             reader.close(); // redundant ?
@@ -47,7 +47,6 @@ public abstract class AbstractDatabase<T extends Record> {
         }
         else
             System.out.println("*Duplicate record, process terminated");
-        // in the future , might be boolean for GUI
     }
     public void deleteRecord(String Key)
     {
@@ -62,7 +61,7 @@ public abstract class AbstractDatabase<T extends Record> {
         try (FileWriter writer = new FileWriter(fileName)){
             for (T record : records){
                 writer.write(record.lineRepresentation()+"\n");
-                writer.flush(); // to try the real-time add
+                writer.flush();
             }
             System.out.println("*Done writing the file");
         }catch (FileNotFoundException e) {

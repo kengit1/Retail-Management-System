@@ -12,28 +12,29 @@ public class EmployeeRole {
         customerProductDatabase.readFromFile();
     }
 
-    public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity) {
+    public void addProduct(String productID,String productName,String manufacturerName,String supplierName,int quantity){
         float placeholderPrice = 1.0f;
-        Product newProduct = new Product(productID, productName, manufacturerName, supplierName, quantity, placeholderPrice);
+
+        Product newProduct=new Product(productID,productName,manufacturerName,supplierName,quantity,placeholderPrice);
         productsDatabase.insertRecord(newProduct);
     }
 
+    public Product[] getListOfProducts(){
+        int size=productsDatabase.returnAllRecords().size();
 
-    public Product[] getListOfProducts() {
-        int size = productsDatabase.returnAllRecords().size();
         return productsDatabase.returnAllRecords().toArray(new Product[size]);
     }
 
 
-    public CustomerProduct[] getListOfPurchasingOperations() {
+    public CustomerProduct[] getListOfPurchasingOperations(){
         int size = customerProductDatabase.returnAllRecords().size();
         return customerProductDatabase.returnAllRecords().toArray(new CustomerProduct[size]);
     }
 
-    public boolean purchaseProduct(String customerSSN, String productID, LocalDate purchaseDate) {
+    public boolean purchaseProduct(String customerSSN,String productID,LocalDate purchaseDate) {
         Product product = productsDatabase.getRecord(productID);
 
-        if (product == null || product.getQuantity() <= 0) {
+        if (product==null || product.getQuantity()<= 0) {
             return false;
         }
         product.setQuantity(product.getQuantity() - 1);
@@ -48,7 +49,6 @@ public class EmployeeRole {
             return -1.0;
         }
 
-        // b. Check if the product is listed in Products.txt
         Product product = productsDatabase.getRecord(productID);
         if (product == null) {
             return -1.0;
@@ -56,7 +56,7 @@ public class EmployeeRole {
 
 
         String key = customerSSN + "," + productID + "," + purchaseDate.format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        CustomerProduct purchaseRecord = customerProductDatabase.getRecord(key);
+        CustomerProduct purchaseRecord=customerProductDatabase.getRecord(key);
 
         if (purchaseRecord == null) {
             return -1.0;
@@ -78,12 +78,10 @@ public class EmployeeRole {
                     !record.isPaid())
             {
                 record.setPaid(true);
-                updated = true;
+                updated=true;
 
             }
         }
-
-
         return updated;
     }
     public void removeProduct(String key){
@@ -92,7 +90,7 @@ public class EmployeeRole {
 
 
     public void logout() {
-        System.out.println("\nEmployee Role: Logging out and saving all changes...");
+        System.out.println("\nLogging out and saving all changes...");
         productsDatabase.saveToFile();
         customerProductDatabase.saveToFile();
     }

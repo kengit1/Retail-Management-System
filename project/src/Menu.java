@@ -2,12 +2,11 @@ import java.util.*;
 import java.time.LocalDate;
 import java.io.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
+
 
 
 public class Menu {
-    private static Scanner s=new Scanner(System.in);
+    private static final Scanner s=new Scanner(System.in);
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 
@@ -117,9 +116,6 @@ private static void adminLogin() {
 
                 System.out.println("\n--- ADD NEW EMPLOYEE --------------------------------------------");
                 s.nextLine();
-                /*System.out.println("Enter ID : "); // added this to try
-                 replace it with the id gen.
-                String id = s.nextLine() ;*/
                 System.out.print("Enter Name: ");
                 String name = s.nextLine();
                 System.out.print("Enter Email: ");
