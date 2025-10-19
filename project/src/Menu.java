@@ -225,7 +225,10 @@ public class Menu {
                     String supplier=s.nextLine();
                     System.out.print("Enter Quantity: ");
                     int quantity=s.nextInt();
-                    employee.addProduct(id,name,manufacturer,supplier,quantity);
+                    System.out.print("Enter placeholderPrice: ");
+                    float placeholderPrice=s.nextFloat();
+                    employee.addProduct(id,name,manufacturer,supplier,quantity,placeholderPrice);
+                    employee.addProduct(id,name,manufacturer,supplier,quantity,placeholderPrice);
                     System.out.println(ANSI_GREEN + "\n[SUCCESS] Product added successfully. Changes will be saved on logout." + ANSI_RESET);
                     break;
                 case 2:

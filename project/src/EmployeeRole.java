@@ -12,9 +12,7 @@ public class EmployeeRole {
         customerProductDatabase.readFromFile();
     }
 
-    public void addProduct(String productID,String productName,String manufacturerName,String supplierName,int quantity){
-        float placeholderPrice = 1.0f;
-
+    public void addProduct(String productID,String productName,String manufacturerName,String supplierName,int quantity,Float placeholderPrice){
         Product newProduct=new Product(productID,productName,manufacturerName,supplierName,quantity,placeholderPrice);
         productsDatabase.insertRecord(newProduct);
     }
