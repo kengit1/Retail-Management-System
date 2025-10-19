@@ -1,6 +1,5 @@
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+
 public class Product {
     private String productID;
     private String productName;
@@ -25,25 +24,14 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
-    public String lineRepresentation() {
-        return productID + "," + productName + "," + manufacturerName + "," +
-                supplierName + "," + quantity + "," + price;
-    }
-
     public String getSearchKey() {
         return productID;
     }
-    public void saveToFile(String filename) {
-        try (FileWriter writer = new FileWriter(filename, true)) {
-            writer.write(lineRepresentation() + "\n");
-            System.out.println("Product saved successfully to " + filename);
-        } catch (IOException e) {
-            System.out.println("Error saving product: " + e.getMessage());
-        }
-    }
-
     public float getPrice() {
         return this.price;
     }
-}
+
+
+
+    }
+
