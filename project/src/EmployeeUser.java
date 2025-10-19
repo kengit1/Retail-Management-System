@@ -40,7 +40,7 @@ public class EmployeeUser implements Record {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
+/*
     public static void main(String[] args) //test main
     {
         EmployeeUser user = new EmployeeUser("Emp101","AkrmSaad","akrSad@gmail.com",
@@ -52,7 +52,7 @@ public class EmployeeUser implements Record {
 
         System.out.println(database.returnAllRecords());
     }
-
+*/
     @Override
     public String toString()
     {

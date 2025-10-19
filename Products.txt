@@ -1,8 +1,4 @@
-P1001,Laptop Pro,Apple Inc,TechWholesale,15,1499.99
 P1002,Wireless Mouse,Logitech,OfficeSupplyCo,50,25.5
-P1003,4K Monitor,Dell,Global,5,349.0
 P1004,USB-C Hub,Anker,AccessoryCorp,100,19.99
 P1005,Mechanical Keyboard,Razer,GamingGear,8,129.5
-1232,koko,omar,omar,3,1.0
-1234,yehiA,mohamed,mosad,1,1.0
-P101,GOW,sony,sony,1,1.0
+P1,Xbox,micro,n,20,1.0

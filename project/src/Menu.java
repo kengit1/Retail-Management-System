@@ -6,9 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 
 
-public class Main {
-    private static AdminRole admin;
-    private static EmployeeRole employee;
+public class Menu {
     private static Scanner s=new Scanner(System.in);
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -88,7 +86,7 @@ public class Main {
     }
 
 private static void adminLogin() {
-    admin = new AdminRole();
+    AdminRole admin = new AdminRole();
         while (true) {
 
 
@@ -109,6 +107,8 @@ private static void adminLogin() {
 
                 System.out.println("\n--- ADD NEW EMPLOYEE --------------------------------------------");
                 s.nextLine();
+                System.out.println("Enter ID : ");
+                String id = s.nextLine() ;
                 System.out.print("Enter Name: ");
                 String name = s.nextLine();
                 System.out.print("Enter Email: ");
@@ -117,7 +117,7 @@ private static void adminLogin() {
                 String address = s.nextLine();
                 System.out.print("Enter Phone Number: ");
                 String phone = s.nextLine();
-                admin.addEmployee("122222", name, email, address, phone);
+                admin.addEmployee(id, name, email, address, phone);
                 break;
             case 2:
                 System.out.println("\n--- LIST OF EMPLOYEES -------------------------------------------");
@@ -156,19 +156,20 @@ private static void adminLogin() {
 }
 
     private static void employeeLogin() {
-        employee = new EmployeeRole();
+        EmployeeRole employee = new EmployeeRole();
         while (true) {
             System.out.println("\n--- EMPLOYEE OPERATIONS MENU ------------------------------------");
             System.out.println("-----------------------------------------------------------------");
             System.out.println("1. Add New Product to Inventory");
-            System.out.println("2. View All Products");
-            System.out.println("3. View All Purchasing Operations");
-            System.out.println("4. Process New Product Purchase (Sale)");
-            System.out.println("5. Process Product Return");
-            System.out.println("6. Apply Payment for Purchase");
-            System.out.println("7. Logout and Save Changes");
+            System.out.println("2. Remove a Product");
+            System.out.println("3. View All Products");
+            System.out.println("4. View All Purchasing Operations");
+            System.out.println("5. Process New Product Purchase (Sale)");
+            System.out.println("6. Process Product Return");
+            System.out.println("7. Apply Payment for Purchase");
+            System.out.println("8. Logout and Save Changes");
             System.out.println("-----------------------------------------------------------------");
-            System.out.print("Enter your choice (1-7): ");
+            System.out.print("Enter your choice (1-8): ");
             int num  ;
             num=s.nextInt();
 
@@ -191,6 +192,16 @@ private static void adminLogin() {
                         employee.logout();
                         break;
                     case 2:
+                        System.out.println("\n--- REMOVE PRODUCT ----------------------------------------------");
+                        System.out.print("Enter the Product ID of the item to remove: ");
+                        s.nextLine() ;
+                        String productIdToRemove = s.nextLine();
+
+                        employee.removeProduct(productIdToRemove);
+
+                        System.out.println("[INFO] Removal command for Product ID '" + productIdToRemove + "' has been executed.");
+                        break;
+                    case 3:
                         System.out.println("\n--- LIST OF ALL PRODUCTS IN INVENTORY ---------------------------");
                         Product[] products = employee.getListOfProducts();
                         if (products.length == 0) {
@@ -215,7 +226,7 @@ private static void adminLogin() {
                         System.out.println("--------------------------------------------------------------------------------");
 
                         break;
-                    case 3:
+                    case 4:
                         System.out.println("\n--- LIST OF PURCHASING OPERATIONS (SALES) -----------------------");
                         CustomerProduct[] purchases = employee.getListOfPurchasingOperations();
 
@@ -232,7 +243,7 @@ private static void adminLogin() {
                         System.out.println("-------------------------------------------------------");
 
                         break;
-                    case 4:
+                    case 5:
                         System.out.println("\n--- PROCESS PRODUCT PURCHASE  -----------------------------");
                         s.nextLine();
                         System.out.print("Enter Customer SSN: ");
@@ -251,7 +262,7 @@ private static void adminLogin() {
                             System.out.printf("\n[FAILURE] Purchase failed. Product ID '%s' not found or out of stock.%n", productId);
                         }
                         break;
-                    case 5:
+                    case 6:
                         System.out.println("\n--- PROCESS PRODUCT RETURN --------------------------------------");
                         s.nextLine();
                         System.out.print("Enter Customer SSN of the purchase: ");
@@ -275,7 +286,7 @@ private static void adminLogin() {
                             System.out.println("  - More than 14 days passed between purchase and return.");
                         }
                         break;
-                    case 6:
+                    case 7:
                         System.out.println("\n--- APPLY PAYMENT FOR PURCHASE ----------------------------------");
                         s.nextLine();
                         System.out.print("Enter Customer SSN for payment: ");
@@ -294,11 +305,12 @@ private static void adminLogin() {
                             System.out.println("\n[FAILURE] Payment failed. Purchase record not found, or it was already paid.");
                         }
                         break;
-                    case 7:
+                    case 8:
                         employee.logout();
                         System.out.println("\n[LOGOUT] Employee session ended. Employee data saved.");
                         return;
                     default:
+                        System.out.println("*Invalid Choice");
                 }
             }
         }
