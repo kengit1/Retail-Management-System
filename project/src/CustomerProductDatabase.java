@@ -14,11 +14,11 @@ public class CustomerProductDatabase extends AbstractDatabase<CustomerProduct>{
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate date = LocalDate.parse(parts[2], formatter);
-        return new CustomerProduct(
-                parts[0].trim(),
-                parts[1].trim(),
-                date
-                );
+        CustomerProduct Product = new CustomerProduct(parts[0].trim(), parts[1].trim(), date);
+        boolean paid;
+        paid = !parts[3].equals("false");
+        Product.setPaid(paid);
+        return Product;
     }
     @Override
     public boolean contains(String key){
