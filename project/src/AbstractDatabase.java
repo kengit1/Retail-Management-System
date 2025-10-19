@@ -60,8 +60,10 @@ public abstract class AbstractDatabase<T extends Record> {
     public void saveToFile()
     {
         try (FileWriter writer = new FileWriter(fileName)){
-            for (T record : records)
+            for (T record : records){
                 writer.write(record.lineRepresentation()+"\n");
+                writer.flush(); // to try the real-time add
+            }
             System.out.println("*Done writing the file");
         }catch (FileNotFoundException e) {
             System.out.println("*File was not found");

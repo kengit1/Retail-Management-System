@@ -51,7 +51,7 @@ public class Menu {
                         k++;
                         System.out.print("Enter Password: ");
                         password = s.nextLine();
-                    } while (!Objects.equals(password, "1234") && k < 3);
+                    } while (!Objects.equals(password, "1234") && k < 3); // not clean
                     if (k >= 3) {
                         System.out.println("Wrong password entered please try later ");
                         return;
@@ -107,7 +107,8 @@ private static void adminLogin() {
 
                 System.out.println("\n--- ADD NEW EMPLOYEE --------------------------------------------");
                 s.nextLine();
-                System.out.println("Enter ID : ");
+                System.out.println("Enter ID : "); // added this to try
+                // replace it with the id gen.
                 String id = s.nextLine() ;
                 System.out.print("Enter Name: ");
                 String name = s.nextLine();
@@ -316,17 +317,3 @@ private static void adminLogin() {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
