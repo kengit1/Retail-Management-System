@@ -281,7 +281,7 @@ public class Menu {
                     System.out.println(ANSI_BLUE + "-------------------------------------------------------" + ANSI_RESET);
                     for (CustomerProduct purchase : purchases) {
                         String purchaseString = purchase.toString();
-                        if (purchaseString.endsWith("true")) {
+                        if (purchaseString.endsWith("PAID")) {
                             System.out.println(ANSI_GREEN + purchaseString + ANSI_RESET);
                         } else {
                             System.out.println(ANSI_RED + purchaseString + ANSI_RESET);
