@@ -1,4 +1,4 @@
 P1002,Wireless Mouse,Logitech,OfficeSupplyCo,50,25.5
 P1004,USB-C Hub,Anker,AccessoryCorp,100,19.99
 P1005,Mechanical Keyboard,Razer,GamingGear,8,129.5
-P1,Xbox,micro,n,20,1.0
+P1001,Xbox,micro,n,20,1.0
