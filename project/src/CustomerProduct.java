@@ -42,7 +42,7 @@ public class CustomerProduct implements Record {
         return customerSSN + "," + productID + "," + dateformatter.format(purchaseDate);
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         LocalDate today = LocalDate.of(2022,2,4);
         CustomerProduct product1 = new CustomerProduct("7845345678","P2568",today);
         CustomerProductDatabase database1 = new CustomerProductDatabase("CustomersProducts.txt");
@@ -50,9 +50,9 @@ public class CustomerProduct implements Record {
         database1.insertRecord(product1);
         database1.saveToFile();
         /*System.out.println(database1.contains("12345433,1253,18-10-2025"));
-        System.out.println(database1.getRecord("123456789,1234,18-10-2025"));*/
+        System.out.println(database1.getRecord("123456789,1234,18-10-2025"));
 
         System.out.println(database1.returnAllRecords());
-    }
+    }*/
 
 }

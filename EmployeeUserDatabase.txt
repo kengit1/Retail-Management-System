@@ -1,3 +1,2 @@
 1201,Akrm,akr@gmail.com,nullity,01204365404
-Emp101,Mo;men,mome,null,null
-Emp2,mama,n,n,n
+5967,mohamed,mohamed@gmail.com,street 30,0102937182

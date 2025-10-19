@@ -104,12 +104,22 @@ private static void adminLogin() {
 
         switch (choice) {
             case 1:
+                Random random = new Random();
+                int randomInt = random.nextInt(10000);
+                String str = String.format("%04d", randomInt);
+                EmployeeUserDatabase database1 = new EmployeeUserDatabase("EmployeeUserDatabase.txt");
+                database1.readFromFile();
+                while(database1.contains(str)){
+                    randomInt = (randomInt + 1) % 10000;
+                    str = String.format("%04d", randomInt);
+                }
+                //random id generation.
 
                 System.out.println("\n--- ADD NEW EMPLOYEE --------------------------------------------");
                 s.nextLine();
-                System.out.println("Enter ID : "); // added this to try
-                // replace it with the id gen.
-                String id = s.nextLine() ;
+                /*System.out.println("Enter ID : "); // added this to try
+                 replace it with the id gen.
+                String id = s.nextLine() ;*/
                 System.out.print("Enter Name: ");
                 String name = s.nextLine();
                 System.out.print("Enter Email: ");
@@ -118,7 +128,7 @@ private static void adminLogin() {
                 String address = s.nextLine();
                 System.out.print("Enter Phone Number: ");
                 String phone = s.nextLine();
-                admin.addEmployee(id, name, email, address, phone);
+                admin.addEmployee(str, name, email, address, phone);
                 break;
             case 2:
                 System.out.println("\n--- LIST OF EMPLOYEES -------------------------------------------");
